@@ -1,6 +1,10 @@
-<div class="card">
+<div class="card col-md-3">
     <div class="card-body">
       <h5 class="card-title"> {{ note.title }} </h5>
         <p class="card-text"> {{ note.text }} </p>
+        <a href="{% url 'delete_note' note.id %}">
+        <button class="delete btn btn-danger"> Delete </button>
+        </a>
     </div>
+
 </div>

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from notes.forms import AddNoteForm
 from notes.models import Note
@@ -10,6 +10,7 @@ def index(request):
             Note.objects.create(
                 title=form.cleaned_data["title"], text=form.cleaned_data["text"]
             )
+            form = AddNoteForm()
             pass
     else:
         form = AddNoteForm()
@@ -18,6 +19,9 @@ def index(request):
 
 
 
+def delete_note(request, title_id):
+    Note.objects.get(id=title_id).delete()
+    return redirect('index')
 
 # def index(request):
 #     return render(request, 'note_list.html')

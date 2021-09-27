@@ -2,6 +2,7 @@
     <div class="card-body">
       <h5 class="card-title"> {{ note.title }} </h5>
         <p class="card-text"> {{ note.text }} </p>
+        <p class="card-text"> {{ note.created_at }} </p>
         <a href="{% url 'delete_note' note.id %}">
         <button class="delete btn btn-danger"> Delete </button>
         </a>
